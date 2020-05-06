@@ -1,0 +1,26 @@
+{
+  "name": "soda",
+  "version": "0.0.1",
+  "description": "A file manager",
+  "main": "main.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "test",
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/soda-BOD/soda.git"
+  },
+  "author": [
+    "Peterlits Zo <peterlitszo@outlook.com>"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/suda-BOD/soda/issues"
+  },
+  "homepage": "https://github.com/soda-BOD/soda#readme",
+  "dependencies": {}
+}
