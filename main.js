@@ -2,7 +2,7 @@ const electron = require('electron')
 
 function createWindows () {
     // create a window
-    let win = new electron.BrowserWindows({
+    let win = new electron.BrowserWindow({
         width:  800,
         height: 600,
         webPreferences: {
