@@ -6,5 +6,18 @@
     </head>
     <body>
         <h1>soda - A file manager</h1>
+        <div>
+            the list of the current path is: <hr />
+            <div id="list">{{ list }}</div>
+        </div>
     </body>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var list = new Vue({
+            el: '#list',
+            data: {
+                list: 'Hello World!'
+            }
+        });
+    </script>
 </html>

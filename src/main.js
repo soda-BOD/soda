@@ -1,4 +1,5 @@
 const electron = require('electron')
+const path     = require('path')
 
 function createWindows () {
     // create a window
