@@ -1,5 +1,7 @@
-const electron = require('electron')
-const path     = require('path')
+'use strict';
+
+const electron  = require('electron');
+const path      = require('path');
 
 function createWindows () {
     // create a window
@@ -12,7 +14,7 @@ function createWindows () {
     })
 
     // load the html file
-    win.loadFile('index.html')
+    win.loadURL(`file://${__dirname}/index.html`)
 }
 
 // the main entry point
