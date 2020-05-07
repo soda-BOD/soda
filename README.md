@@ -4,9 +4,9 @@ soda
 What is it?
 -----------
 
-`soda` is a software that base on [Electron](https://www.electronjs.org/). It
-is a file manager with pretty looking (not now), a strong tool to deal with
-those paths.
+`soda` is a software that base on [Electron](https://www.electronjs.org/) and 
+[Vue.js](https://www.vuejs.org/). It is a file manager with pretty looking (not
+now), a strong tool to deal with those paths (not now).
 
 How to run?
 -----------
