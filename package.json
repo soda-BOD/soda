@@ -1,31 +1,60 @@
 {
   "name": "soda",
   "version": "0.0.1",
-  "description": "A file manager",
-  "main": "main.js",
-  "directories": {
-    "doc": "docs"
-  },
-  "scripts": {
-    "test": "test",
-    "start": "electron ./src/main.js --no-sandbox"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/soda-BOD/soda.git"
-  },
+  "private": true,
+  "main": "public/electron.js",
+  "license": "MIT",
   "author": [
     "Peterlits Zo <peterlitszo@outlook.com>"
   ],
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/suda-BOD/soda/issues"
+  "homepage": "./",
+  "build": {
+    "appId": "com.github.soda.soda-BOD",
+    "files": [
+      "build/**/*",
+      "node_modules/**/*"
+    ],
+    "directories":{
+      "buildResources": "assets"
+    }
   },
-  "homepage": "https://github.com/soda-BOD/soda#readme",
-  "dependencies": {},
-  "devDependencies": {
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "electron-dev": "concurrently \"BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\"",
+    "preelectron-pack": "yarn build",
+    "electron-pack": "build --em.main=build/electron.js"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "dependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "electron-is-dev": "^1.2.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.1"
+ },
+ "devDependencies": {
+    "concurrently": "^5.2.0",
     "electron": "^8.2.5",
-    "vue": "^2.6.11",
-    "walk": "^2.3.14"
+    "electron-builder": "^22.6.0",
+    "wait-on": "^5.0.0"
   }
 }
