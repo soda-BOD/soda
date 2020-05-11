@@ -1,6 +1,8 @@
 Help for coder
 ==============
 
+It will be good if you follow this rules below:
+
 The git's commit message
 ------------------------
 
@@ -14,3 +16,8 @@ test: about test
 chor: about chorefeat: new feature
 ```
 
+The Aim
+-------
+
+If you want to add a new feature, you need to create a issue and then add it to
+[Aim document](./aim.md). After finish it, then you need edit aim.
