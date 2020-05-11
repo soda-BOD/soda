@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>soda - A file manager</title>
+    </head>
+    <body>
+        <h1>soda - A file manager</h1>
+        <div>
+            <div id="path">the list of the current path ({{ path }}) is:</div>
+            <hr />
+            <div id="list" v-html="list"></div>
+        </div>
+    </body>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        'use strict';
+        var walk = require('walk')
+        var path = require('path')
+
+        var files = []
+        var folder = []
+        function getFileList() {
+            var walker = walk.walk(process.cwd(), { followLinks: false })
+            walker.on('file', function(roots, stat, next){
+                files.push(roots + '/' + stat.name)
+                next()
+            })
+            walker.on('directory', function(roots, stat, next){
+                folder.push(roots + '/' + stat.name)
+                next()
+            })
+        }
+
+        getFileList()
+
+        var path = new Vue({
+            el: '#path',
+            data: {
+                path: process.cwd()
+            }
+        })
+        var list = new Vue({
+            el: '#list',
+            data: {
+                list: `dir:<br/>` + folder + `<hr/>files:<br/>` + files
+            }
+        })
+    </script>
+</html>
