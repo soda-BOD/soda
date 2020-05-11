@@ -1,34 +1,37 @@
 import React from 'react'
 var fs = window.require('fs')
 
-async function readdir(path) {
-    var files
-    await fs.readdir(path, (err, all_files) => {
-        if(err) {
-            throw Error("path is wrong!")
-        }
-        files = all_files
-    })
+function readdir(path) {
+    var files = fs.readdirSync(path)
     return files
 }
 
-function App() {
-    var files = null
-    readdir('/home/peter/proj').then(value => {
-        files = value
-    })
-    if (files === null) {
-        return <div>please waiting...</div>
-    } else {
+class App extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = { files: readdir(process.cwd()) }
+    }
+
+    filesList() {
+        var result =
+            <ul>
+                {this.state.files.map(item => (
+                    <li>{item}</li>
+                ))}
+            </ul>
+        return result
+    }
+
+    render () {
         return (
             <div style={{background:"#eeeeee"}}>
                 <div id="head"><h1>path {process.cwd()} :</h1></div>
                 <hr />
                 <div id="body">
-                    <div>{files}</div>
+                    {this.filesList()}
                 </div>
             </div>
-        )
+       )
     }
 }
 
