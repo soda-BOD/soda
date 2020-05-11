@@ -14,7 +14,7 @@
       "build/**/*",
       "node_modules/**/*"
     ],
-    "directories":{
+    "directories": {
       "buildResources": "assets"
     }
   },
@@ -50,8 +50,8 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1"
- },
- "devDependencies": {
+  },
+  "devDependencies": {
     "concurrently": "^5.2.0",
     "electron": "^8.2.5",
     "electron-builder": "^22.6.0",

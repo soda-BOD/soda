@@ -1,31 +1,35 @@
 import React from 'react'
-import logo from './logo.svg'
-import './App.css'
-// import fs from 'fs'
-const fs = require('fs')
+var fs = window.require('fs')
 
-var files = []
-var folders = []
-
-function getFilesList(cwd) {
-    fs.readdir(cwd, (err, files) => {
-        files.forEach(file => {
-            files.push(file)
-        })
+async function readdir(path) {
+    var files
+    await fs.readdir(path, (err, all_files) => {
+        if(err) {
+            throw Error("path is wrong!")
+        }
+        files = all_files
     })
+    return files
 }
 
 function App() {
-    getFilesList(process.cwd())
-    return (
-        <div style={{background:"#eeeeee"}}>
-            <div class="head"><h1>path {process.cwd()} :</h1></div>
-            <hr />
-            <div class="body">
-                <div></div>
+    var files = null
+    readdir('/home/peter/proj').then(value => {
+        files = value
+    })
+    if (files === null) {
+        return <div>please waiting...</div>
+    } else {
+        return (
+            <div style={{background:"#eeeeee"}}>
+                <div id="head"><h1>path {process.cwd()} :</h1></div>
+                <hr />
+                <div id="body">
+                    <div>{files}</div>
+                </div>
             </div>
-        </div>
-    );
+        )
+    }
 }
 
 export default App;
